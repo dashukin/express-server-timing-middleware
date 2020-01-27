@@ -19,7 +19,8 @@
     "test": "jest --config ./config/jest/jest.config.js",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "npm test -- --coverage",
-    "test:ci": "npm run test:coverage && codecov"
+    "test:ci": "npm run test:coverage && codecov",
+    "prepublish": "npm run test && npm run build"
   },
   "repository": {
     "type": "git",
