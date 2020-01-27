@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/dashukin/express-server-timing-middleware.svg?branch=master)](https://travis-ci.org/dashukin/express-server-timing-middleware)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
-[![Coverage](https://codecov.io/gh/dashukin/express-server-timing-middleware/branch/master/graph/badge.svg)](https://codecov.io/gh/dashukin/express-server-timing-middleware)
+[![codecov](https://codecov.io/gh/dashukin/express-server-timing-middleware/branch/master/graph/badge.svg)](https://codecov.io/gh/dashukin/express-server-timing-middleware)
 
 # express-server-timing-middleware
 Express middleware to measure application performance and add Server-Timing headers to response
