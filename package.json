@@ -9,11 +9,17 @@
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3"
+    "@babel/preset-env": "^7.8.3",
+    "babel-jest": "^25.1.0",
+    "codecov": "^3.6.2",
+    "jest": "^25.1.0"
   },
   "scripts": {
-    "build": "babel ./src --out-dir ./dist --config-file ./config/babel/babel.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel ./src --out-dir ./dist",
+    "test": "jest --config ./config/jest/jest.config.js",
+    "test:watch": "npm run test -- --watch",
+    "test:coverage": "npm test -- --coverage",
+    "test:ci": "npm run test:coverage && codecov"
   },
   "repository": {
     "type": "git",
