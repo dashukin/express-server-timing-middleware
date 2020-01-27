@@ -13,7 +13,7 @@ export const writeServerTimingHeaders = (serverTimingTracker, res) => () => {
     const serverTimingHeaderValue = [
       metric.name,
       `dur=${metric.duration}`,
-      metric.description ? `desc=${metric.description}` : '',
+      metric.description ? `desc="${metric.description}"` : metric.name,
     ]
       .filter((value) => !!value)
       .join('; ');
@@ -29,23 +29,25 @@ export const writeServerTimingHeaders = (serverTimingTracker, res) => () => {
 
   const serverTimingHeaderValue = serverTimingHeaders.join(', ');
 
-  res.set({
-    [serverTimingHeader]: serverTimingHeaderValue,
-  });
+  if (serverTimingHeaderValue) {
+    res.set({
+      [serverTimingHeader]: serverTimingHeaderValue,
+    });
+  }
 };
 
 /**
  *
  * @param {Object} options
  * @param {String} [options.namespace] - server timing tracker namespace to be injected into req
- * @param {Boolean|Function} [options.emitHeaders] - if server timing header should be written
+ * @param {Boolean|Function} [options.writeHeaders] - if server timing header should be written
  * @param {Object} [options.meta] - any global meta to be aligned with all metrics tracked
  * @param {Function} [options.beforeEmit] - function to be called before headers are sent
  */
 const serverTiming = (options = {}) => (req, res, next) => {
   const {
     namespace = serverTimingNamespace,
-    emitHeaders,
+    writeHeaders,
     meta,
   } = options;
 
@@ -54,8 +56,8 @@ const serverTiming = (options = {}) => (req, res, next) => {
   });
   req[namespace] = tracker;
 
-  const shouldWriteHeaders = emitHeaders === true
-    || ((typeof emitHeaders === 'function') && (emitHeaders(req) === true));
+  const shouldWriteHeaders = writeHeaders === true
+    || ((typeof writeHeaders === 'function') && (writeHeaders(req) === true));
 
   if (shouldWriteHeaders) {
     onHeaders(res, writeServerTimingHeaders(tracker, res));

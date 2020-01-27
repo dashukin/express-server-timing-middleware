@@ -100,21 +100,22 @@ export const getServerTimingsSnapshot = (serverTimingData) => ({ end = false } =
 
   // fill uncomplete metrics with duration values
   const serverTimingsSnapshot = serverTimings
-    .filter((metric) => {
-      return metric.complete === false;
-    })
-    .map(metric => {
-      const duration = convertHRToMilliseconds(process.hrtime(metric.start));
-      const completeMetricData = !end ? {} : {
-        complete: true,
-      };
+    .map((metric) => {
+      if (metric.complete === false) {
+        const duration = convertHRToMilliseconds(process.hrtime(metric.start));
+        const completeMetricData = !end ? {} : {
+          complete: true,
+        };
 
-      const fixedMetric = Object.assign({}, {
-        ...metric,
-        duration,
-      }, completeMetricData);
+        const fixedMetric = Object.assign({}, {
+          ...metric,
+          duration,
+        }, completeMetricData);
 
-      return fixedMetric;
+        return fixedMetric;
+      } else {
+        return metric;
+      }
     });
 
   return serverTimingsSnapshot;
