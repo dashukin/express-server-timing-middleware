@@ -75,8 +75,8 @@ export const serverTimingLogger  = () => (req, res, next) => {
 
 
 #### Alternatives you might be interested 
-[https://www.npmjs.com/package/server-timing](https://www.npmjs.com/package/server-timing)
-[https://www.npmjs.com/package/server-timing-header](https://www.npmjs.com/package/server-timing-header)
-[https://www.npmjs.com/package/server-timing-benchmark](https://www.npmjs.com/package/server-timing-benchmark)
-[https://www.npmjs.com/package/express-simple-timing](https://www.npmjs.com/package/express-simple-timing)
+- [https://www.npmjs.com/package/server-timing](https://www.npmjs.com/package/server-timing)
+- [https://www.npmjs.com/package/server-timing-header](https://www.npmjs.com/package/server-timing-header)
+- [https://www.npmjs.com/package/server-timing-benchmark](https://www.npmjs.com/package/server-timing-benchmark)
+- [https://www.npmjs.com/package/express-simple-timing](https://www.npmjs.com/package/express-simple-timing)
 
