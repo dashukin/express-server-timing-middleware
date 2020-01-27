@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.com/dashukin/express-server-timing.svg?branch=master)](https://travis-ci.org/dashukin/express-server-timing)
+[![Build Status](https://travis-ci.com/dashukin/express-server-timing-middleware.svg?branch=master)](https://travis-ci.org/dashukin/express-server-timing)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
-[![Coverage](https://codecov.io/gh/dashukin/express-server-timing/branch/master/graph/badge.svg)](https://codecov.io/gh/dashukin/express-server-timing)
+[![Coverage](https://codecov.io/gh/dashukin/express-server-timing-middleware/branch/master/graph/badge.svg)](https://codecov.io/gh/dashukin/express-server-timing)
 
-# express-server-timing
+# express-server-timing-middleware
 Express middleware to measure application performance and add Server-Timing headers to response
 
 ### Motivation
@@ -15,7 +15,7 @@ Express middleware to measure application performance and add Server-Timing head
 ##### Add serverTiming middleware to your app router or subrouter
 ```javascript
 import express from 'express';
-import serverTiming from 'express-server-timing';
+import serverTiming from 'express-server-timing-middleware';
 import { appRenderController } from './controllers/app-render.controller';
 import { shouldWriteDebugHeaders } from './utils';
 
