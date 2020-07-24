@@ -10,29 +10,20 @@ export const writeServerTimingHeaders = (serverTimingTracker, res) => () => {
   });
 
   const serverTimingHeaders = metrics.map((metric) => {
+    const description = metric.description ? `desc="${metric.name}: ${metric.description}"` : ''
     const serverTimingHeaderValue = [
       metric.name,
       `dur=${metric.duration}`,
-      metric.description ? `desc="${metric.description}"` : metric.name,
+      description,
     ]
       .filter((value) => !!value)
-      .join('; ');
+      .join(';');
 
     return serverTimingHeaderValue;
   });
 
-  const existingServerTimingHeader = res.getHeader(serverTimingHeader);
-
-  if (existingServerTimingHeader) {
-    serverTimingHeaders.unshift(existingServerTimingHeader);
-  }
-
-  const serverTimingHeaderValue = serverTimingHeaders.join(', ');
-
-  if (serverTimingHeaderValue) {
-    res.set({
-      [serverTimingHeader]: serverTimingHeaderValue,
-    });
+  if (serverTimingHeaders.length) {
+    res.append(serverTimingHeader, serverTimingHeaders);
   }
 };
 

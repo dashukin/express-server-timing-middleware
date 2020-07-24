@@ -9,9 +9,9 @@ export const isPlainObject = (o) => Object.prototype.toString.call(o).slice(8, -
  */
 export const convertHRToMilliseconds = (hrData) => {
   const [seconds, nanoseconds] = hrData;
-  const milliseconds = (seconds * 1e9 + nanoseconds) / 1e6;
+  const milliseconds = seconds * 1e3 + nanoseconds * 1e-6;
 
-  return milliseconds;
+  return Number(milliseconds.toFixed(3))
 };
 
 /**
