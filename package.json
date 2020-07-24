@@ -1,6 +1,6 @@
 {
   "name": "express-server-timing-middleware",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Express middleware to track server time spent on operations and write Server-Timing headers",
   "main": "dist/index.js",
   "dependencies": {
