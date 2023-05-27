@@ -4,6 +4,9 @@
   "description": "Express middleware to track server time spent on operations and write Server-Timing headers",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "devDependencies": {
     "@babel/cli": "^7.21.5",
     "@babel/core": "^7.22.1",
