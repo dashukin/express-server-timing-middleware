@@ -5,10 +5,10 @@ export interface ExpressServerTimingMiddlewareProps {
   writeHeaders?: boolean | ((req: Request) => boolean);
 }
 
-export type ServerTimingMiddleware = (req: Request, res: Response, nex: NextFunction) => void;
-export type ServerTimingMiddlewareFactory = (
+export type ExpressServerTimingMiddleware = (req: Request, res: Response, nex: NextFunction) => void;
+export type ExpressServerTimingMiddlewareFactory = (
   props: ExpressServerTimingMiddlewareProps,
-) => ServerTimingMiddleware;
+) => ExpressServerTimingMiddleware;
 
 export type ServerTimingMetric = {
   start: ReturnType<typeof process.hrtime>;

@@ -1,13 +1,13 @@
 import onHeaders from 'on-headers';
 import type { Request, Response, NextFunction } from 'express';
 import type {
+  ExpressServerTimingMiddlewareFactory,
+  ExpressServerTimingMiddleware,
   ExpressServerTimingMiddlewareProps,
   ExpressServerTimingTracker,
   ServerTimingMetric,
-  ServerTimingMiddleware,
 } from './types/server-timing-middleware.types';
 import { createServerTimingTracker } from './utils';
-import { ServerTimingMiddlewareFactory } from './types/server-timing-middleware.types';
 
 const serverTimingNamespace = 'serverTiming';
 const serverTimingHeader = 'server-timing';
@@ -39,8 +39,8 @@ export const writeServerTimingHeaders =
  * @param {Boolean|Function} [options.writeHeaders] - if server timing header should be written
  * @param {Object} [options.meta] - any global meta to be aligned with all metrics tracked
  */
-export const createServerTimingMiddleware: ServerTimingMiddlewareFactory =
-  (options: ExpressServerTimingMiddlewareProps): ServerTimingMiddleware =>
+export const createServerTimingMiddleware: ExpressServerTimingMiddlewareFactory =
+  (options: ExpressServerTimingMiddlewareProps): ExpressServerTimingMiddleware =>
   (req: Request, res: Response, next: NextFunction) => {
     try {
       const { namespace = serverTimingNamespace, writeHeaders } = options;
