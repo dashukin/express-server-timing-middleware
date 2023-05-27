@@ -36,7 +36,6 @@ export const writeServerTimingHeaders =
  * @param {String} [options.namespace] - server timing tracker namespace to be injected into req
  * @param {Boolean|Function} [options.writeHeaders] - if server timing header should be written
  * @param {Object} [options.meta] - any global meta to be aligned with all metrics tracked
- * @param {Function} [options.beforeEmit] - function to be called before headers are sent
  */
 export const createServerTimingMiddleware =
   (options: ExpressServerTimingMiddlewareProps) =>

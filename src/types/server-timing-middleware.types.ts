@@ -1,10 +1,8 @@
 import type { Request } from 'express';
 
 export interface ExpressServerTimingMiddlewareProps {
-  namespace: string;
-  writeHeaders: boolean | ((req: Request) => boolean);
-  meta: any;
-  beforeEmit?: () => void;
+  namespace?: string;
+  writeHeaders?: boolean | ((req: Request) => boolean);
 }
 
 export type ServerTimingMetric = {
