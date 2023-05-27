@@ -27,6 +27,7 @@
     "strictPropertyInitialization": true,
     "resolveJsonModule": true,
     "declaration": true,
+    "declarationMap": true,
     "emitDeclarationOnly": false,
     "isolatedModules": true,
     "importsNotUsedAsValues": "remove",
