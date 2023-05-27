@@ -1,10 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "lib": ["ES2022"],
-    "target": "ES2022",
+    "lib": ["ES2016"],
+    "target": "ES2016",
     "module": "ESNext",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "outDir": "./dist/esm",
     "declarationDir": "./dist/esm"
   }
