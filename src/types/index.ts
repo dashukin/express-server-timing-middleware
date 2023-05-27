@@ -4,6 +4,5 @@ export type {
   ExpressServerTimingMiddlewareProps,
   ExpressServerTimingMetric,
   ExpressServerTimingTracker,
-  ExpressServerTimingRequest,
   ExpressServerTimingsData,
 } from './server-timing-middleware.types';

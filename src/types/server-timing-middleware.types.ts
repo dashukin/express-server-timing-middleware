@@ -5,7 +5,11 @@ export interface ExpressServerTimingMiddlewareProps {
   writeHeaders?: boolean | ((req: Request) => boolean);
 }
 
-export type ExpressServerTimingMiddleware = (req: Request, res: Response, nex: NextFunction) => void;
+export type ExpressServerTimingMiddleware = (
+  req: Request,
+  res: Response,
+  nex: NextFunction,
+) => void;
 export type ExpressServerTimingMiddlewareFactory = (
   props: ExpressServerTimingMiddlewareProps,
 ) => ExpressServerTimingMiddleware;
@@ -26,6 +30,8 @@ export type ExpressServerTimingTracker = {
 
 export type ExpressServerTimingsData = Map<string, ExpressServerTimingMetric>;
 
-export type ExpressServerTimingRequest<T> = {
-  [Property in keyof T]?: ExpressServerTimingTracker;
-} & Request;
+declare module 'http' {
+  interface IncomingMessage {
+    serverTiming: ExpressServerTimingTracker;
+  }
+}
