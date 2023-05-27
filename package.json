@@ -8,7 +8,7 @@
     ".": {
       "import": {
         "types": "./dist/esm/types/index.d.ts",
-        "default": "./dist/esm/index.mjs"
+        "default": "./dist/esm/index.js"
       },
       "require": {
         "types": "./dist/cjs/types/index.d.ts",
@@ -44,7 +44,7 @@
   "scripts": {
     "clean": "rimraf ./dist/*",
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
-    "build:esm": "tsc -p ./tsconfig.esm.json && mv ./dist/esm/index.js ./dist/esm/index.mjs",
+    "build:esm": "tsc -p ./tsconfig.esm.json",
     "build": "npm run clean && npm run build:cjs && npm run build:esm",
     "test": "jest --config ./config/jest/jest.config.js",
     "test:watch": "npm run test -- --watch",
