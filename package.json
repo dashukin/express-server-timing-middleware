@@ -4,18 +4,6 @@
   "description": "Express middleware to track server time spent on operations and write Server-Timing headers",
   "types": "./dist/cjs/types/index.d.ts",
   "main": "./dist/cjs/index.js",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/esm/types/index.d.ts",
-        "default": "./dist/esm/index.js"
-      },
-      "require": {
-        "types": "./dist/cjs/types/index.d.ts",
-        "default": "./dist/cjs/index.js"
-      }
-    }
-  },
   "devDependencies": {
     "@babel/cli": "^7.21.5",
     "@babel/core": "^7.22.1",
