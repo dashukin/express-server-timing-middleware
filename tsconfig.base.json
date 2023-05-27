@@ -34,6 +34,7 @@
     "removeComments": true,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
       "src": ["src"]
