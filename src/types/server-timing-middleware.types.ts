@@ -1,9 +1,14 @@
-import type { Request } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 
 export interface ExpressServerTimingMiddlewareProps {
   namespace?: string;
   writeHeaders?: boolean | ((req: Request) => boolean);
 }
+
+export type ServerTimingMiddleware = (req: Request, res: Response, nex: NextFunction) => void;
+export type ServerTimingMiddlewareFactory = (
+  props: ExpressServerTimingMiddlewareProps,
+) => ServerTimingMiddleware;
 
 export type ServerTimingMetric = {
   start: ReturnType<typeof process.hrtime>;
