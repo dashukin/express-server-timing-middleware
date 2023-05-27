@@ -4,7 +4,7 @@
   "compilerOptions": {
     "types": ["jest"],
     "target": "ES2016",
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "sourceMap": true,
     "importHelpers": true,
@@ -27,7 +27,6 @@
     "strictPropertyInitialization": true,
     "resolveJsonModule": true,
     "declaration": true,
-    "declarationMap": true,
     "emitDeclarationOnly": false,
     "isolatedModules": true,
     "importsNotUsedAsValues": "remove",
