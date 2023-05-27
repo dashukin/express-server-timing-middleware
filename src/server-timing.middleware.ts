@@ -5,7 +5,7 @@ import type {
   ExpressServerTimingMiddleware,
   ExpressServerTimingMiddlewareProps,
   ExpressServerTimingTracker,
-  ServerTimingMetric,
+  ExpressServerTimingMetric,
 } from './types/server-timing-middleware.types';
 import { createServerTimingTracker } from './utils';
 
@@ -18,7 +18,7 @@ export const writeServerTimingHeaders =
       end: true,
     });
 
-    const serverTimingHeaders = metrics.map((metric: ServerTimingMetric) => {
+    const serverTimingHeaders = metrics.map((metric: ExpressServerTimingMetric) => {
       const description = metric.description ? `desc="${metric.name}: ${metric.description}"` : '';
       const serverTimingHeaderValue = [metric.name, `dur=${metric.duration}`, description]
         .filter((value) => !!value)

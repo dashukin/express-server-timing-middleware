@@ -1,6 +1,6 @@
 import type {
   ExpressServerTimingTracker,
-  ServerTimingMetric,
+  ExpressServerTimingMetric,
   ExpressServerTimingsData,
 } from '../types/server-timing-middleware.types';
 
@@ -29,7 +29,7 @@ export const createMetric = ({
 }: {
   name: string;
   description?: string | undefined;
-}): ServerTimingMetric => ({
+}): ExpressServerTimingMetric => ({
   start: process.hrtime(),
   duration: undefined,
   complete: false,
@@ -43,7 +43,7 @@ export const createMetric = ({
  */
 export const startServerTiming =
   (serverTimingData: ExpressServerTimingsData) =>
-  (name: string, description?: string): ServerTimingMetric | undefined => {
+  (name: string, description?: string): ExpressServerTimingMetric | undefined => {
     if (!isValidServerTimingLabel(name)) {
       return undefined;
     }
@@ -85,8 +85,8 @@ export const endServerTiming = (serverTimingData: ExpressServerTimingsData) => (
 export const getServerTimingsSnapshot =
   (serverTimingData: ExpressServerTimingsData) =>
   ({ end = false } = {}) => {
-    const serverTimings: ServerTimingMetric[] = [];
-    serverTimingData.forEach((metric: ServerTimingMetric) => {
+    const serverTimings: ExpressServerTimingMetric[] = [];
+    serverTimingData.forEach((metric: ExpressServerTimingMetric) => {
       serverTimings.push(metric);
     });
 

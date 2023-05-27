@@ -2,7 +2,7 @@ export type {
   ExpressServerTimingMiddlewareFactory,
   ExpressServerTimingMiddleware,
   ExpressServerTimingMiddlewareProps,
-  ServerTimingMetric,
+  ExpressServerTimingMetric,
   ExpressServerTimingTracker,
   ExpressServerTimingRequest,
   ExpressServerTimingsData,

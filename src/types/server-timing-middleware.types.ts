@@ -10,7 +10,7 @@ export type ExpressServerTimingMiddlewareFactory = (
   props: ExpressServerTimingMiddlewareProps,
 ) => ExpressServerTimingMiddleware;
 
-export type ServerTimingMetric = {
+export type ExpressServerTimingMetric = {
   start: ReturnType<typeof process.hrtime>;
   duration: number | undefined;
   complete: false;
@@ -21,10 +21,10 @@ export type ServerTimingMetric = {
 export type ExpressServerTimingTracker = {
   start: (name: string, description?: string) => void;
   end: (name: string) => void;
-  getSnapshot: (options?: { end: boolean }) => ServerTimingMetric[];
+  getSnapshot: (options?: { end: boolean }) => ExpressServerTimingMetric[];
 };
 
-export type ExpressServerTimingsData = Map<string, ServerTimingMetric>;
+export type ExpressServerTimingsData = Map<string, ExpressServerTimingMetric>;
 
 export type ExpressServerTimingRequest<T> = {
   [Property in keyof T]?: ExpressServerTimingTracker;

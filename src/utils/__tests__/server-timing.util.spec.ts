@@ -1,4 +1,4 @@
-import type { ExpressServerTimingsData, ServerTimingMetric } from '../../types';
+import type { ExpressServerTimingsData, ExpressServerTimingMetric } from '../../types';
 import {
   isValidServerTimingLabel,
   isPlainObject,
@@ -130,7 +130,7 @@ describe('server-timing.util', () => {
 
         startServerTimingHandler(mockName);
 
-        const metric: ServerTimingMetric = mockServerTimigData.get(mockName)!;
+        const metric: ExpressServerTimingMetric = mockServerTimigData.get(mockName)!;
         expect(metric.complete).toBe(false);
         endServerTimingHandler(mockName);
         expect(metric.complete).toBe(true);
@@ -143,7 +143,7 @@ describe('server-timing.util', () => {
 
         startServerTimingHandler(mockName);
 
-        const metric: ServerTimingMetric = mockServerTimigData.get(mockName)!;
+        const metric: ExpressServerTimingMetric = mockServerTimigData.get(mockName)!;
         expect(metric.duration).toBeUndefined();
         endServerTimingHandler(mockName);
         expect(metric.duration).toEqual(expect.any(Number));
