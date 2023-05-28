@@ -1,3 +1,5 @@
+import type { ExpressServerTimingTracker } from './types';
+
 export { createServerTimingMiddleware } from './server-timing.middleware';
 
 export type {
@@ -5,5 +7,13 @@ export type {
   ExpressServerTimingMiddleware,
   ExpressServerTimingMiddlewareProps,
   ExpressServerTimingTracker,
-  ExpressServerTimingMetric
+  ExpressServerTimingMetric,
 } from './types';
+
+declare global {
+  namespace Express {
+    export interface Request {
+      serverTiming: ExpressServerTimingTracker;
+    }
+  }
+}
